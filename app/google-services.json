@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "362103655305",
+    "firebase_url": "https://initfirestore-3f130.firebaseio.com",
+    "project_id": "initfirestore-3f130",
+    "storage_bucket": "initfirestore-3f130.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:362103655305:android:056554d1d027bbb1c2af58",
+        "android_client_info": {
+          "package_name": "com.royalteck.progtobi.accidentreport"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "362103655305-n7utsqkool3c63r7kitu72q3pk4mmdac.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDp8iDfpyNUkineKCdtF56gwWw_YawnLic"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "362103655305-n7utsqkool3c63r7kitu72q3pk4mmdac.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

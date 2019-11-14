@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">AccidentReport</string>
+    <string name="action_settings">Settings</string>
+    <string name="location">Location</string>
+    <string name="desc">Description</string>
+    <string name="submit_report">Submit Report</string>
+</resources>
