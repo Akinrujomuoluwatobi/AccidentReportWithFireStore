@@ -20,7 +20,10 @@ class MainActivity : AppCompatActivity() {
         firestore = FirebaseFirestore.getInstance()
 
         submit_reportBtn.setOnClickListener { view ->
-            submitReport(locEditText.text.toString(), description.text.toString())
+            if (locEditText.text.isEmpty() || description.text.isEmpty())
+                Toast.makeText(this, "Fields Cannot be Empty", Toast.LENGTH_LONG).show()
+            else
+                submitReport(locEditText.text.toString(), description.text.toString())
         }
 
     }
@@ -43,7 +46,7 @@ class MainActivity : AppCompatActivity() {
             }
             .addOnFailureListener { e ->
                 Log.w("Error", "Error adding document", e)
-                Toast.makeText(this, "Error: "+e, Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "Error: " + e, Toast.LENGTH_LONG).show()
             }
 
 
@@ -52,6 +55,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.menu_main, menu)
+        val menuItem: MenuItem = menu.findItem(R.id.action_reports)
+        if (FirebaseUtil.isAdmin)
+            menuItem.setVisible(true)
+        else
+            menuItem.setVisible(false)
         return true
     }
 
@@ -60,14 +68,22 @@ class MainActivity : AppCompatActivity() {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         return when (item.itemId) {
-            R.id.action_settings -> true
+            R.id.action_reports -> {
+                Toast.makeText(this, "Toast", Toast.LENGTH_LONG).show()
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
+
     }
 
     override fun onResume() {
         super.onResume()
         FirebaseUtil.openFbReference(this)
         FirebaseUtil.attachListener()
+    }
+
+    fun showMenu() {
+        invalidateOptionsMenu()
     }
 }

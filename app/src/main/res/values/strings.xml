@@ -4,4 +4,6 @@
     <string name="location">Location</string>
     <string name="desc">Description</string>
     <string name="submit_report">Submit Report</string>
+    <string name="view_reports">View Reports</string>
+    <string name="logout">LogOut</string>
 </resources>

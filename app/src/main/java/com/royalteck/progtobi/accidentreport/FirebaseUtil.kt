@@ -8,9 +8,10 @@ import com.firebase.ui.auth.AuthUI
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import java.util.*
+import kotlin.collections.ArrayList
 
 object FirebaseUtil {
-    private lateinit var caller: Activity
+    private lateinit var caller: MainActivity
     lateinit var mFireStore: FirebaseFirestore
     private var mFirebaseUtil: FirebaseUtil? = null
     lateinit var mFirebaseAuth: FirebaseAuth
@@ -18,7 +19,7 @@ object FirebaseUtil {
     private val RC_SIGN_IN = 123
     var isAdmin: Boolean = false
 
-    fun openFbReference(callerActivity: Activity) {
+    fun openFbReference(callerActivity: MainActivity) {
         if (mFirebaseUtil == null) {
 //            mFirebaseUtil = FirebaseUtil()
             mFireStore = FirebaseFirestore.getInstance()
@@ -41,13 +42,9 @@ object FirebaseUtil {
             }
 
         }
-        /*mDeals = ArrayList<TravelDeals>()
-        mDatabaseReference = mFirebaseDatabase.getReference().child(ref)*/
+
     }
 
-    /*private operator fun invoke(): FirebaseUtil? {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }*/
 
     private fun checkAdmin(userId: String) {
         isAdmin = false
@@ -57,6 +54,7 @@ object FirebaseUtil {
                 if (document != null) {
                     Log.d("DOCUMENT", "DocumentSnapshot data: ${document.data}")
                     isAdmin = true
+                    caller.showMenu()
                 } else {
                     Log.d("NO SUCH DOCUMENT", "No such document")
                 }
